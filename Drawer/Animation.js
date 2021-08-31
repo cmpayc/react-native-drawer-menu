@@ -8,7 +8,7 @@ export default function Animation(option) {
   this.option = option;
 }
 
-Animation.prototype.animate = function (now) {
+Animation.prototype.animate = function () {
   const {
     start,
     end,
@@ -17,7 +17,7 @@ Animation.prototype.animate = function (now) {
     onAnimationEnd,
     easingFunc = this.defaultEasing
   } = this.option;
-
+  const now = Date.now();
   let currentDuration = now - this.startTime;
   if (currentDuration >= duration) {
     onAnimationFrame(end);
@@ -35,7 +35,7 @@ Animation.prototype.animate = function (now) {
 };
 
 Animation.prototype.start = function (time) {
-  this.startTime = new Date();
+  this.startTime = Date.now();
   this.animate(time || this.startTime);
 };
 

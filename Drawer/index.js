@@ -77,8 +77,7 @@ export default class Drawer extends Component {
     this.state = {
       showMask: false
     };
-  }
-  componentWillMount() {
+
     const {
       drawerWidth,
       drawerPosition,
